@@ -15,7 +15,7 @@ docker rmi -f java-automation
 docker build -t java-automation .
 
 # Run a new container based on the image, and Run test case command in container
-docker run -it java-automation ./gradlew test
+#docker run -it java-automation cd JavaRestAssure && ./gradlew test
 docker run -it java-automation /bin/bash
 
 

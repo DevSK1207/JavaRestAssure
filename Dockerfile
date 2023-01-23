@@ -1,14 +1,24 @@
-FROM openjdk:8-jdk-alpine
+FROM gradle:5.0-jdk11-alpine AS build
 
-# Copy the rest of the project source code
-COPY . /JavaRestAssure
 
 # Set the working directory to the project root
 WORKDIR /app
 
-#RUN chmod +x gradlew
+# Copy the gradle
+COPY --chown=gradle:gradle . /home/gradle/src
 
-#RUN gradlew clean build
+#Run gradle
+RUN gradle build --no-daemon
+
+
+FROM openjdk:11-jre-slim
+
+EXPOSE 8080
+
+# Copy the rest of the project source code
+COPY . /JavaRestAssure
 
 # Set the default command to run when the container starts
+
 CMD ["java", "-jar", "build/libs/JavaRestAssure.jar"]
+
