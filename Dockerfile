@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
 # Copy the rest of the project source code
-COPY . /javaAPIAutomation
+COPY . /JavaRestAssure
 
 # Set the working directory to the project root
 WORKDIR /app
