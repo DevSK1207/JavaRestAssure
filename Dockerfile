@@ -6,9 +6,9 @@ COPY . /JavaRestAssure
 # Set the working directory to the project root
 WORKDIR /app
 
-RUN chmod +x ./gradlew
+#RUN chmod +x gradlew
 
-RUN ./gradlew clean build
+#RUN gradlew clean build
 
 # Set the default command to run when the container starts
-CMD ["java", "-jar", "build/libs/javaAPIAutomation.jar"]
+CMD ["java", "-jar", "build/libs/JavaRestAssure.jar"]
