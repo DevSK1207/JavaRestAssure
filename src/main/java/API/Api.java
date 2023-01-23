@@ -11,7 +11,7 @@ public class Api {
 
     private String baseUrl;
 
-    public Api(){
+    public Api() {
         Properties prop = new Properties();
         try {
             prop.load(getClass().getClassLoader().getResourceAsStream("Url.properties"));
@@ -20,6 +20,7 @@ public class Api {
             e.printStackTrace();
         }
     }
+
     public String getbaseUrl() {
         return baseUrl;
     }
@@ -37,7 +38,7 @@ public class Api {
     public Response getUser(int userId) {
         System.out.println("Base URL: " + getbaseUrl());
         return RestAssured.given()
-                .header("Authorization", "Bearer " )
+                .header("Authorization", "Bearer ")
                 .get(getbaseUrl() + "/" + userId);
 
     }
